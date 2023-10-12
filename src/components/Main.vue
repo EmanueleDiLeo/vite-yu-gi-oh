@@ -1,15 +1,14 @@
 <template>
   <main>
     <div class="my-container">
-
-      <Results />
-      <div class="row">
-        <h2 v-if="store.cardsListStart.length < 20">Loading...</h2>
-        <Card v-else
-          v-for="(card,index) in store.cardsListStart"
-          :key="index"
+      <h2 v-if="store.cardsListStart.length < 20">Loading...</h2>
+      <div class="row" v-else>
+        <Results />
+        <Card
+          v-for="(card) in store.cardsListStart"
+          :key="card.id"
           :card="card"
-          :img="card.card_images.image_url_small"
+          :img = "card.card_images[0].image_url"
           />
       </div>
 
@@ -54,19 +53,20 @@ main{
   min-height: 600px;
   background-color: $bg-main;
   padding: 50px;
+  width: 100%;
   .my-container{
     margin: 0 auto;
-    width: 90%;
+    width: 1200px;
     background-color: aliceblue;
-    padding: 50px 0 50px 50px;
+    padding: 62px 0 62px 62px;
     min-height: 300px;
+
+    h2{
+      font-size: 5rem;
+    }
     .row{
       display: flex;
       flex-wrap: wrap;
-
-      h2{
-        font-size: 5rem;
-      }
     }
   }
 }

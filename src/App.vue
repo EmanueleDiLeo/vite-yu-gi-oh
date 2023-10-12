@@ -26,7 +26,6 @@ import Main from './components/Main.vue';
 
     methods:{
       getApiStart(){
-        
         axios.get(store.apiUrlStart)
         .then( res => {
           store.cardsListStart = res.data.data;
@@ -35,7 +34,6 @@ import Main from './components/Main.vue';
         .catch(err => {
           console.log(err);
         })
-
       },
 
       getApi(){
@@ -45,7 +43,7 @@ import Main from './components/Main.vue';
           // console.log(store.cardsList);
         })
         .catch(err => {
-          console.log(err.data);
+          console.log(err);
         })
       },
     },

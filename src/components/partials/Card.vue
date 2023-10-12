@@ -1,7 +1,7 @@
 <template>
   <div class="col">
     <div class="card">
-      <img src="https://images.ygoprodeck.com/images/cards_small/34541863.jpg" :alt="card.name">
+      <img :src="card.card_images[0].image_url_small" :alt="card.name">
       <h4>{{ card.name }}</h4>
       <span>{{ card.archetype }}</span>
       <span>{{ card.attribute }}</span>
