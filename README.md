@@ -13,5 +13,5 @@ Creare un componente loader da visualizzare fintantoché i risultati non sono pr
 ### Svolgimento
 
 1. creare i componenti header,main e card. 
-1. creare in data lo store.js
+1. creare in data lo store.js dove inseriamo le api
 1. su scss creare un main,general,typograpy e variables  

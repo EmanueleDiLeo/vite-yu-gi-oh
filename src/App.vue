@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Main from './components/Main.vue';
 import axios from 'axios';
 import {store} from './data/store';
+import Header from './components/Header.vue';
+import Main from './components/Main.vue';
 
   export default {
     name:'App',
@@ -26,29 +26,36 @@ import {store} from './data/store';
 
     methods:{
       getApiStart(){
+        
         axios.get(store.apiUrlStart)
         .then( res => {
-          store.cardsList = res.data.results;
+          store.cardsListStart = res.data.data;
+          console.log(store.cardsListStart);
         })
         .catch(err => {
           console.log(err);
         })
+
       },
 
       getApi(){
         axios.get(store.apiUrl)
-        .then( res => {
-          store.cardsList = res.data.results;
+        .then( response => {
+          store.cardsList = response.data.data;
+          // console.log(store.cardsList);
         })
         .catch(err => {
-          console.log(err);
+          console.log(err.data);
         })
       },
     },
 
+    computed:{
+
+    },
+
     mounted(){
       this.getApiStart();
-      this.getApi();
     }
   }
 </script>
