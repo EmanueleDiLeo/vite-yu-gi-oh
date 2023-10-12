@@ -9,3 +9,9 @@ https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0
 **Bonus:**
 Creare un componente loader da visualizzare fintantoché i risultati non sono pronti.
 **Documentazione**: https://ygoprodeck.com/api-guide/
+
+### Svolgimento
+
+1. creare i componenti header,main e card. 
+1. creare in data lo store.js
+1. su scss creare un main,general,typograpy e variables  
