@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
   .bg-res{
     background-color: #212529;
-    width: calc(100% - 60px);
+    width: 100%;
     min-height: 50px;
     display: flex;
     align-items: center;

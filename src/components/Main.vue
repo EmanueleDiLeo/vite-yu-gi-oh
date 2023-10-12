@@ -1,15 +1,17 @@
 <template>
   <main>
-    <div class="my-container">
+    <div class="container">
       <h2 v-if="store.cardsListStart.length < 20">Loading...</h2>
-      <div class="row" v-else>
+      <div v-else>
         <Results />
+        <div class="row">
         <Card
           v-for="(card) in store.cardsListStart"
           :key="card.id"
           :card="card"
           :img = "card.card_images[0].image_url"
           />
+      </div>
       </div>
 
     </div>
@@ -41,7 +43,6 @@ export default {
     setTimeout( () => {
       console.log(store.cardsListStart);
     },2000)
-    
   }
 
 }
@@ -54,19 +55,13 @@ main{
   background-color: $bg-main;
   padding: 50px;
   width: 100%;
-  .my-container{
-    margin: 0 auto;
-    width: 1200px;
+  .container{
     background-color: aliceblue;
-    padding: 62px 0 62px 62px;
+    padding: 50px 50px 30px 50px;
     min-height: 300px;
 
     h2{
       font-size: 5rem;
-    }
-    .row{
-      display: flex;
-      flex-wrap: wrap;
     }
   }
 }
