@@ -2,7 +2,7 @@
 
   <Header />
   <div class="bg-container" >
-    <SearchBar />
+    <SearchBar @startSearch="getApi"/>
     <Main />
   </div>
 
@@ -42,10 +42,15 @@ import SearchBar from './components/partials/SearchBar.vue';
       },
 
       getApi(){
-        axios.get(store.apiUrl)
+        axios.get(store.apiUrl,{
+          params:{
+            archetype: store.typeToSearch
+          }
+        })
         .then( response => {
-          store.cardsList = response.data.data;
-          // console.log(store.cardsList);
+          store.cardsListStart = response.data.data;
+          console.log(store.typeToSearch);
+          console.log(store.cardsListStart);
         })
         .catch(err => {
           console.log(err);

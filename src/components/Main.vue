@@ -1,7 +1,7 @@
 <template>
   <main>
-    <h2 v-if="store.cardsListStart.length < 20">Loading...</h2>
-    <div v-else>
+    <!-- <h2 v-if="store.cardsListStart.length < 20">Loading...</h2> -->
+    <div>
       <div class="container">
         <Results />
         <div class="row">
