@@ -1,7 +1,10 @@
 <template>
 
   <Header />
-  <Main />
+  <div class="bg-container" >
+    <SearchBar />
+    <Main />
+  </div>
 
 </template>
 
@@ -10,12 +13,14 @@ import axios from 'axios';
 import {store} from './data/store';
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
+import SearchBar from './components/partials/SearchBar.vue';
 
   export default {
     name:'App',
     components:{
       Header,
       Main,
+      SearchBar,
     },
 
     data(){
@@ -46,6 +51,17 @@ import Main from './components/Main.vue';
           console.log(err);
         })
       },
+
+      getApiType(){
+        axios.get(store.apiUrlType)
+        .then( response => {
+          store.cardsListType = response.data;
+          console.log(store.cardsListType);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+      },
     },
 
     computed:{
@@ -54,11 +70,20 @@ import Main from './components/Main.vue';
 
     mounted(){
       this.getApiStart();
+      this.getApiType();
     }
   }
 </script>
 
 <style lang="scss">
-  @use './scss/main.scss';
+  @use './scss/main.scss' as *;
+
+
+  .bg-container{
+    min-height: 600px;
+    background-color: $bg-main;
+    padding: 50px;
+    width: 100%;
+  }
 
 </style>

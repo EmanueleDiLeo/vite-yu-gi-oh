@@ -1,8 +1,8 @@
 <template>
   <main>
-    <div class="container">
-      <h2 v-if="store.cardsListStart.length < 20">Loading...</h2>
-      <div v-else>
+    <h2 v-if="store.cardsListStart.length < 20">Loading...</h2>
+    <div v-else>
+      <div class="container">
         <Results />
         <div class="row">
         <Card
@@ -11,9 +11,8 @@
           :card="card"
           :img = "card.card_images[0].image_url"
           />
+        </div>
       </div>
-      </div>
-
     </div>
   </main>
 </template>
@@ -21,16 +20,16 @@
 <script>
 
 import {store} from '../data/store';
-
 import Card from './partials/Card.vue';
 import Results from './partials/Results.vue';
+
 
 export default {
   name:'Main',
 
   components:{
     Card,
-    Results
+    Results,
   },
 
   data(){
@@ -39,30 +38,20 @@ export default {
     }
   },
 
-  mounted(){
-    setTimeout( () => {
-      console.log(store.cardsListStart);
-    },2000)
-  }
-
 }
 </script>
 
 <style lang="scss" scoped>
 @use '../scss/partials/variables' as *;
 main{
-  min-height: 600px;
-  background-color: $bg-main;
-  padding: 50px;
-  width: 100%;
+  
+  h2{
+      font-size: 5rem;
+    }
   .container{
     background-color: aliceblue;
     padding: 50px 50px 30px 50px;
     min-height: 300px;
-
-    h2{
-      font-size: 5rem;
-    }
   }
 }
 </style>
