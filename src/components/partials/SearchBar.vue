@@ -1,6 +1,7 @@
 <template>
   <div class="search-bar">
-    <select v-model="store.typeToSearch" @change="$emit('startSearch')" class="form-select" type="text" aria-label="Default select example" placeholder="Search Character">
+    <select v-model="store.typeToSearch" @change="$emit('startSearch')" class="form-select" aria-label="Default select example">
+
       <option 
         v-for="(type,index) in store.cardsListType" 
         :key="index"

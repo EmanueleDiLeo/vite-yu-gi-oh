@@ -5,12 +5,12 @@
       <div class="container">
         <Results />
         <div class="row">
-        <Card
-          v-for="(card) in store.cardsListStart"
-          :key="card.id"
-          :card="card"
-          :img = "card.card_images[0].image_url"
-          />
+          <Card
+            v-for="(card) in store.cardsListStart"
+            :key="card.id"
+            :card="card"
+            :img = "card.card_images[0].image_url"
+            />
         </div>
       </div>
     </div>
@@ -22,7 +22,6 @@
 import {store} from '../data/store';
 import Card from './partials/Card.vue';
 import Results from './partials/Results.vue';
-
 
 export default {
   name:'Main',
@@ -44,10 +43,6 @@ export default {
 <style lang="scss" scoped>
 @use '../scss/partials/variables' as *;
 main{
-  
-  h2{
-      font-size: 5rem;
-    }
   .container{
     background-color: aliceblue;
     padding: 50px 50px 30px 50px;
