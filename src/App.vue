@@ -33,23 +33,18 @@ import Loader from './components/partials/Loader.vue'
     },
 
     methods:{
-      getApiStart(){
-        store.loading=true;
-        axios.get(store.apiUrlStart)
-        .then( res => {
-          store.cardsListStart = res.data.data;
-          console.log(store.cardsListStart);
-          store.loading=false;
-        })
-        .catch(err => {
-          console.log(err);
-          store.loading=false;
-        })
-      },
 
       getApi(){
+        let url;
+        if(store.start){
+          url = store.apiUrl + '?num=20&offset=0';
+          store.start = false;
+        }
+        else{
+          url = store.apiUrl;
+        }
         store.loading=true;
-        axios.get(store.apiUrl,{
+        axios.get(url,{
           params:{
             archetype: store.typeToSearch
           }
@@ -78,12 +73,8 @@ import Loader from './components/partials/Loader.vue'
       },
     },
 
-    computed:{
-
-    },
-
     mounted(){
-      this.getApiStart();
+      this.getApi();
       this.getApiType();
     }
   }
